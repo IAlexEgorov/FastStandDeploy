@@ -1,2 +1,7 @@
 # FastStandDeploy
-Fast ready stand
+
+CI/CD: Bitbucket + Jenkins
+Virtualisation: Docker, KVM
+
+Back: MongoDB 
+Front: nginx
