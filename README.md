@@ -23,9 +23,18 @@ Front: nginx
 		php atlassian-keygen.php -e license_key_product.txt
     - Активируем продукт
 
-2) Установка KVM? (а там дадут простанство в виде 50ГБ под все нужды?)
+2) Установка KVM? (а там дадут простанство в виде 50ГБ под все нужды?) - не сильно требуется
 
-3) Залить jenkins и написать, как связать их по webhook
+		 sudo apt install qemu qemu-kvm libvirt-daemon libvirt-clients bridge-utils virt-manager
+		 sudo gpasswd -a $USER libvirt
+		 sudo systemctl status libvirtd
+
+3) Залить Jenkins и написать, как связать их по webhook
+
+		wget -q -O - https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo apt-key add -
+		sudo sh -c 'echo deb http://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list'
+		sudo apt update
+		sudo apt install jenkins
 
 4) Подключить Mongo 
 

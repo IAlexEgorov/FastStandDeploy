@@ -1,0 +1,26 @@
+version: '3.2'
+services:
+
+    front_nginx:
+        image: nginx:latest
+        container_name: nginx
+        ports:
+          - "8000:80"
+        volumes:
+          - ./hosts:/etc/nginx/conf.d
+          - ./www:/var/www
+          - ./logs:/var/log/nginx
+        restart: always
+    
+    back_mongo_db:
+        image: mongo
+        volumes:
+          - ./data:/data/db
+        ports:
+          - "27017:27017"
+        restart: always
+
+    bitbucket:
+        build: ./bitbucket_crack
+        container_name: bitbucket
+        restart: always
